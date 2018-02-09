@@ -2,6 +2,8 @@ package com.code.challenge.socialnetwork.service;
 
 import com.code.challenge.socialnetwork.domain.Post;
 import com.code.challenge.socialnetwork.domain.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,6 +14,8 @@ import java.util.stream.Collectors;
 
 @Component
 public class SocialNetworkBoard {
+    private final static Logger LOGGER = LoggerFactory.getLogger(SocialNetworkBoard.class);
+
     private Set<User> listOfRegisteredUsers = new HashSet<>();
     private List<Post> listOfUsersPosts = new ArrayList<>();
 
@@ -32,8 +36,7 @@ public class SocialNetworkBoard {
 
         listOfUsersPosts.add(post);
 
-        System.out.println();
-        listOfUsersPosts.forEach(System.out::println);
+        LOGGER.info("Post created: " + post);
     }
 
     public List<Post> getAllPosts() {
@@ -56,11 +59,7 @@ public class SocialNetworkBoard {
             }
         }
 
-        for (User u : listOfRegisteredUsers) {
-            if (u.equals(user)) {
-                System.out.println(user + " --- follows ---" + u.getFollowing());
-            }
-        }
+        LOGGER.info("FOLLOWING added: " + user + " --- follows ---" + following);
     }
 
     public Set<User> getFollowing(User user) {
@@ -75,20 +74,10 @@ public class SocialNetworkBoard {
 
     public List<Post> getPostsOfUserFollowing(User user) {
         Set<User> userSet = getFollowing(user);
-        List<Post> posts;
 
-        System.out.println("List of following ------" + userSet);
-
-        listOfUsersPosts.forEach(post -> System.out.println(post.getAuthor()));
-        System.out.println("Authors of post ------");
-
-        posts = listOfUsersPosts.stream()
+        return listOfUsersPosts.stream()
                 .filter(post -> userSet.contains(post.getAuthor()))
                 .sorted((o1, o2) -> o2.getCreated().compareTo(o1.getCreated()))
                 .collect(Collectors.toList());
-
-        System.out.println("List of post of following ------" + posts);
-
-        return posts;
     }
 }

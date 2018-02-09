@@ -7,12 +7,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PostMapper {
+    private final static int POST_MAX_LENGTH = 140;
+
     @Autowired
     private UserMapper userMapper;
 
     public Post mapToPost(PostDto postDto) {
+        String content = postDto.getContent();
+
+        if (postDto.getContent().length() > POST_MAX_LENGTH) {
+            content = content.substring(0, POST_MAX_LENGTH - 1);
+        }
+
         return new Post(postDto.getTitle(),
-                postDto.getContent(),
+                content,
                 userMapper.mapToUser(postDto.getAuthor()),
                 postDto.getCreated());
     }
