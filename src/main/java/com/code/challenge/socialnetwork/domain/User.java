@@ -11,11 +11,16 @@ public class User {
     private String lastName;
     private String nick;
     private Set<User> following = new HashSet<>();
+    private Long id;
 
     public User(String firstName, String lastName, String nick) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.nick = nick;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void addFollowing(User user) {
