@@ -1,6 +1,20 @@
 # SOCIAL NETWORK APPLICATION
 
-# Intro
+This repository contains two different versions of the code. First version was commited on Friday 9th 2018 and API description is provided at the bottom of this document.
+Last Sunday 12th 2018, I wrote controller code in differnt way. First I provided new class `IdGenerator` which generates id's for users and than I was able to use id's in exchange of full user data (`firstName`, `lastName` and `nick`).
+
+# Intro (version 12th February)
+This code uses memory for storing all the values. Using `IdGenerator` class I limited using of POST method. 
+
+Full documentation for API is available thru Swagger - http://localhost:8080/swagger-ui.html
+
+![swagerr screenshot](https://github.com/magikabdul/codeH/blob/master/postman_tests/swagger.PNG)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# Intro (version 9th February)
 This code uses memory for storing all the values. Thats why I used POST method body to pass full user information. 
 
 ## Documentation
