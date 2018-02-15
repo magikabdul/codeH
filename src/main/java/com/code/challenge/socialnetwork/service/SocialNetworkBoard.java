@@ -102,4 +102,13 @@ public class SocialNetworkBoard {
                 .sorted((o1, o2) -> o2.getCreated().compareTo(o1.getCreated()))
                 .collect(Collectors.toList());
     }
+
+    public void deleteAllUsers() {
+        idGenerator.resetGenerator("User");
+        listOfRegisteredUsers.clear();
+    }
+
+    public void deleteAllPosts() {
+        listOfUsersPosts.clear();
+    }
 }

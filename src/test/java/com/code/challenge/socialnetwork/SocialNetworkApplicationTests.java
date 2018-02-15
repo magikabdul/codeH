@@ -37,6 +37,10 @@ public class SocialNetworkApplicationTests {
 		Assert.assertEquals("John", userFirstName);
 		Assert.assertEquals("Doe", userLastName);
 		Assert.assertEquals("nn", userNick);
+
+		//CleanUp
+		socialNetworkBoard.deleteAllUsers();
+		socialNetworkBoard.deleteAllPosts();
 	}
 
 	@Test
@@ -55,6 +59,10 @@ public class SocialNetworkApplicationTests {
 		//Then
 		Assert.assertEquals(1, user1Id);
 		Assert.assertEquals(2, user2Id);
+
+		//CleanUp
+		socialNetworkBoard.deleteAllUsers();
+		socialNetworkBoard.deleteAllPosts();
 	}
 
 	@Test
@@ -70,6 +78,10 @@ public class SocialNetworkApplicationTests {
 
 		//Then
 		Assert.assertEquals(1, usersQuantity);
+
+		//CleanUp
+		socialNetworkBoard.deleteAllUsers();
+		socialNetworkBoard.deleteAllPosts();
 	}
 
 	@Test
@@ -87,6 +99,10 @@ public class SocialNetworkApplicationTests {
 		//Then
 		Assert.assertEquals(1, usersQuantity);
 		Assert.assertEquals(1, postQuantity);
+
+		//CleanUp
+		socialNetworkBoard.deleteAllUsers();
+		socialNetworkBoard.deleteAllPosts();
 	}
 
 	@Test
@@ -107,6 +123,10 @@ public class SocialNetworkApplicationTests {
 		//Then
 		Assert.assertEquals(2, user1postQuantity);
 		Assert.assertEquals(0, user2postQuantity);
+
+		//CleanUp
+		socialNetworkBoard.deleteAllUsers();
+		socialNetworkBoard.deleteAllPosts();
 	}
 
 	@Test
@@ -127,6 +147,10 @@ public class SocialNetworkApplicationTests {
 		//Then
 		Assert.assertEquals(1, user1FollowQuantity);
 		Assert.assertEquals(0, user2FollowQuantity);
+
+		//CleanUp
+		socialNetworkBoard.deleteAllUsers();
+		socialNetworkBoard.deleteAllPosts();
 	}
 
 	@Test
@@ -152,5 +176,9 @@ public class SocialNetworkApplicationTests {
 		//Then
 		Assert.assertEquals(0, numberOfPostOfUser1Follwing);
 		Assert.assertEquals(3, numberOfPostOfUser2Follwing);
+
+		//CleanUp
+		socialNetworkBoard.deleteAllUsers();
+		socialNetworkBoard.deleteAllPosts();
 	}
 }

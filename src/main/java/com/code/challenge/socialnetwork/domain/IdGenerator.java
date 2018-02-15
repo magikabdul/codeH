@@ -26,4 +26,8 @@ public class IdGenerator {
 
         return nextId;
     }
+
+    public void resetGenerator(String entity) {
+        idByEntity.put(entity, 1L);
+    }
 }
